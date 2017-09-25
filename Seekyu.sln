@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Seekyu", "Seekyu\Seekyu.csproj", "{196C1BAF-E547-4743-9D63-3FB87F9FFC56}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Seekyu.Tests", "Seekyu.Tests\Seekyu.Tests.csproj", "{6CB095D4-85F7-44E1-A22F-612A4ECE4713}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Seekyu", "Seekyu\Seekyu.csproj", "{A73AFB6C-33AE-4EDE-A37A-174B66244C40}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{196C1BAF-E547-4743-9D63-3FB87F9FFC56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{196C1BAF-E547-4743-9D63-3FB87F9FFC56}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{196C1BAF-E547-4743-9D63-3FB87F9FFC56}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{196C1BAF-E547-4743-9D63-3FB87F9FFC56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CB095D4-85F7-44E1-A22F-612A4ECE4713}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CB095D4-85F7-44E1-A22F-612A4ECE4713}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CB095D4-85F7-44E1-A22F-612A4ECE4713}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CB095D4-85F7-44E1-A22F-612A4ECE4713}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A73AFB6C-33AE-4EDE-A37A-174B66244C40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A73AFB6C-33AE-4EDE-A37A-174B66244C40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A73AFB6C-33AE-4EDE-A37A-174B66244C40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A73AFB6C-33AE-4EDE-A37A-174B66244C40}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
