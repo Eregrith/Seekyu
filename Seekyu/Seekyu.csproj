@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dispatcher.cs" />
+    <Compile Include="ExtensionMethodReflection.cs" />
     <Compile Include="IQuery.cs" />
     <Compile Include="IQueryDispatcher.cs" />
     <Compile Include="IQueryHandler.cs" />

@@ -21,7 +21,7 @@ namespace Seekyu.Tests
 
             Assert.That(() => dispatcherTested.Handle<TestResponse>(new TestQuery()),
                 Throws.InstanceOf<MissingHandlerException>()
-                    .With.Message.Contains("IQueryHandler<TestQuery, TestResponse>"));
+                    .With.Message.Contains("IHandler<TestQuery, TestResponse>"));
         }
 
         [Test]
@@ -52,20 +52,6 @@ namespace Seekyu.Tests
             TestResponse response = dispatcherTested.Handle<TestResponse>(query);
 
             response.Should().BeSameAs(expectedResponse);
-        }
-
-        [Test]
-        public void Handle_Should_Throw_TooManyHandlersException_When_More_Than_One_Handler_Corresponds()
-        {
-            TestQuery query = new TestQuery();
-            TestResponse expectedResponse = new TestResponse();
-            Mock<IQueryHandler<TestQuery, TestResponse>> mockHandler = new Mock<IQueryHandler<TestQuery, TestResponse>>();
-            mockHandler.Setup(m => m.TryHandle(query)).Returns(expectedResponse);
-            IQueryDispatcher dispatcherTested = new QueryDispatcher(mockHandler.Object, mockHandler.Object);
-
-            Assert.That(() => dispatcherTested.Handle<TestResponse>(new TestQuery()),
-                Throws.InstanceOf<TooManyHandlersException>()
-                    .With.Message.Contains("IQueryHandler<TestQuery, TestResponse>"));
         }
     }
 }
