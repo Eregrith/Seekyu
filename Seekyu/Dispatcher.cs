@@ -7,6 +7,7 @@ namespace Seekyu
     public class Dispatcher<TDispatchable>
         where TDispatchable : IDispatchable
     {
+        private readonly string HandlerName = typeof(IHandler<,>).Name;
         private List<IHandler> Handlers;
         private Dictionary<Tuple<Type, Type>, IHandler> TypedHandlers;
 
@@ -19,7 +20,7 @@ namespace Seekyu
             foreach (IHandler handler in handlers)
             {
                 var t = handler.GetType().GetInterfaces();
-                var generics = t.First(i => i.Name == "IHandler`2").GetGenericArguments();
+                var generics = t.First(i => i.Name == HandlerName).GetGenericArguments();
                 if (generics.Count() == 2)
                 {
                     if (TypedHandlers.Any(k => k.Key.Item1 == generics[0] && k.Key.Item2 == generics[1]))
@@ -30,7 +31,7 @@ namespace Seekyu
             }
         }
 
-        public TResponse Handle<TResponse>(TDispatchable dispatchable)
+        public TResponse Dispatch<TResponse>(TDispatchable dispatchable)
             where TResponse : IResponse
         {
             Type queryType = dispatchable.GetType();
@@ -42,7 +43,7 @@ namespace Seekyu
                 throw (MissingHandlerException)Activator.CreateInstance(typeof(MissingHandlerException<,>).MakeGenericType(queryType, responseType));
             }
             IHandler candidate = TypedHandlers.First(matchingHandler).Value;
-            var tryHandle = candidate.GetType().GetInterface("IHandler`2").GetMethod("TryHandle");
+            var tryHandle = candidate.GetType().GetInterface(HandlerName).GetMethod("TryHandle");
             return (TResponse)tryHandle.Invoke(candidate, new object[] { dispatchable });
         }
     }

@@ -19,7 +19,7 @@ namespace Seekyu.Tests
         {
             IQueryDispatcher dispatcherTested = new QueryDispatcher();
 
-            Assert.That(() => dispatcherTested.Handle<TestResponse>(new TestQuery()),
+            Assert.That(() => dispatcherTested.Dispatch<TestResponse>(new TestQuery()),
                 Throws.InstanceOf<MissingHandlerException>()
                     .With.Message.Contains("IHandler<TestQuery, TestResponse>"));
         }
@@ -33,7 +33,7 @@ namespace Seekyu.Tests
             mockHandler.Setup(m => m.TryHandle(query)).Returns(expectedResponse);
             IQueryDispatcher dispatcherTested = new QueryDispatcher(mockHandler.Object);
 
-            TestResponse response = dispatcherTested.Handle<TestResponse>(query);
+            TestResponse response = dispatcherTested.Dispatch<TestResponse>(query);
 
             response.Should().BeSameAs(expectedResponse);
         }
@@ -49,7 +49,7 @@ namespace Seekyu.Tests
             otherMockHandler.Setup(m => m.TryHandle(query)).Throws(new InvalidOperationException("Wrong handler called"));
             IQueryDispatcher dispatcherTested = new QueryDispatcher(mockHandler.Object, otherMockHandler.Object);
 
-            TestResponse response = dispatcherTested.Handle<TestResponse>(query);
+            TestResponse response = dispatcherTested.Dispatch<TestResponse>(query);
 
             response.Should().BeSameAs(expectedResponse);
         }
