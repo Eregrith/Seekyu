@@ -25,7 +25,7 @@ namespace Seekyu.Dispatchers.Delegating
             try
             {
                 string formattedCommand = Serializer.Serialize(dispatchable);
-                Logger.LogCommand(formattedCommand);
+                Logger.LogQuery(formattedCommand);
 
                 TResult response = Next.Dispatch<TResult>(dispatchable);
 

@@ -10,7 +10,6 @@ namespace Seekyu.Logging
     {
         void LogQuery(string message);
         void LogResponse(string message);
-        void LogCommand(string message);
         void LogException(Exception exception);
     }
 }
