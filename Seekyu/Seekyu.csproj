@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,18 +43,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dispatcher.cs" />
-    <Compile Include="ExtensionMethodReflection.cs" />
-    <Compile Include="IQuery.cs" />
-    <Compile Include="IQueryDispatcher.cs" />
-    <Compile Include="IQueryHandler.cs" />
-    <Compile Include="IResponse.cs" />
-    <Compile Include="MissingHandlerException.cs" />
-    <Compile Include="MissingQueryHandlerException.cs" />
+    <Compile Include="Dispatchers\DecoratableDispatcher.cs" />
+    <Compile Include="Dispatchers\Delegating\DelegatingDispatcher.cs" />
+    <Compile Include="Dispatchers\Delegating\LoggingDispatcher.cs" />
+    <Compile Include="Dispatchers\Dispatcher.cs" />
+    <Compile Include="IDispatcher.cs" />
+    <Compile Include="Exceptions\MissingHandlerException.cs" />
+    <Compile Include="Exceptions\DuplicatedHandlerException.cs" />
+    <Compile Include="Extensions\TypeExtensions.cs" />
+    <Compile Include="IDispatchable.cs" />
+    <Compile Include="IHandler.cs" />
+    <Compile Include="Logging\EncryptedStringPropertyResolver.cs" />
+    <Compile Include="Logging\ILogger.cs" />
+    <Compile Include="Logging\IObjectSerializer.cs" />
+    <Compile Include="Logging\JsonObjectSerializer.cs" />
+    <Compile Include="Logging\LogEncryptedAttribute.cs" />
+    <Compile Include="Logging\LogIgnoredAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QueryDispatcher.cs" />
-    <Compile Include="TooManyQueryHandlersException.cs" />
-    <Compile Include="TooManyHandlersException.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

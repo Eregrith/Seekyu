@@ -57,6 +57,9 @@
     <Reference Include="Moq, Version=4.7.99.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
       <HintPath>..\packages\Moq.4.7.99\lib\net45\Moq.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework, Version=3.8.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.8.1\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
@@ -66,11 +69,12 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="OtherTestResponse.cs" />
+    <Compile Include="Dispatchers\DecoratableDispatcherTests.cs" />
+    <Compile Include="Dispatchers\Delegating\LoggingDispatcherTests.cs" />
+    <Compile Include="Logging\EncryptedStringPropertyResolverTests.cs" />
+    <Compile Include="Logging\JsonSerializerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QueryDispatcherTests.cs" />
-    <Compile Include="TestQuery.cs" />
-    <Compile Include="TestResponse.cs" />
+    <Compile Include="Dispatchers\DispatcherTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
