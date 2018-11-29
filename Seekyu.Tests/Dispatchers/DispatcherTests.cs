@@ -132,7 +132,7 @@ namespace Seekyu.Tests
 
             Action a = () => new Dispatcher<IQuery>(handlers);
 
-            a.ShouldThrow<DuplicatedHandlerException>().WithMessage("There is already a Handler of <TestQuery, string> registered");
+            a.Should().Throw<DuplicatedHandlerException>().WithMessage("There is already a Handler of <TestQuery, string> registered");
         }
     }
 }

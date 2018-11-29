@@ -22,7 +22,7 @@ namespace Seekyu.Tests.Logging
         {
             Action action = () => new EncryptedStringPropertyResolver(null);
 
-            action.ShouldThrow<ArgumentNullException>();
+            action.Should().Throw<ArgumentNullException>();
         }
 
         [Test]
@@ -75,7 +75,7 @@ namespace Seekyu.Tests.Logging
 
             Action action = () => JsonConvert.DeserializeObject<TestQuery>(json, settings);
 
-            action.ShouldThrow<CryptographicException>();
+            action.Should().Throw<CryptographicException>();
         }
     }
 }
